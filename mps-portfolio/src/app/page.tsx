@@ -15,7 +15,14 @@ export default function Home() {
         }}
       />
       <Navbar />
-      {/* ...existing page content... */}
+      <div className="flex flex-col items-center justify-center h-full w-full gap-8">
+        <span className="text-5xl text-white text-center fonts-bold">
+          Transformamos a sua ideia numa ferramenta capaz de fazer o seu negócio progredir
+        </span>
+        <button className="bg-white cursor-pointer text-black rounded px-8 py-3 font-semibold shadow transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:translate-x-2">
+          Contacte-nos
+        </button>
+      </div>
     </div>
   );
 }
