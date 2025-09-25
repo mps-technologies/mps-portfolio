@@ -1,8 +1,10 @@
+// ...existing code...
 "use client";
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
 import Logo from './Logo';
 
 const navigation = [
@@ -17,26 +19,46 @@ function classNames(...classes: (string | boolean | undefined)[]) {
 }
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const servicesElement = document.getElementById('services');
+    if (servicesElement) {
+      const servicesTop = servicesElement.offsetTop - 64; // Subtract navbar height for better timing
+
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY >= servicesTop);
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+
   return (
     <Disclosure
       as="nav"
-      className="fixed top-0 w-full bg-transparent backdrop-blur-lg border-b border-gray-200/30 shadow-lg transition-all duration-300 z-50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
+      className={`fixed top-0 w-full backdrop-blur-lg border-b border-gray-200/30 shadow-lg transition-all duration-300 z-50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 ${
+        isScrolled ? 'bg-white/90' : 'bg-transparent'
+      }`}
     >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
             {/* Mobile menu button*/}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
+            <DisclosureButton className={`group relative inline-flex items-center justify-center rounded-md p-2 hover:bg-white/5 focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500 ${
+              isScrolled ? 'text-gray-900 hover:text-gray-700' : 'text-gray-400 hover:text-white'
+            }`}>
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
-<Bars3Icon aria-hidden="true" className="block size-6 group-data-open:hidden" />
+              <Bars3Icon aria-hidden="true" className="block size-6 group-data-open:hidden" />
               <XMarkIcon aria-hidden="true" className="hidden size-6 group-data-open:block" />
             </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center justify-between">
             <div className="flex shrink-0 items-center">
               <Link href="/" className="cursor-pointer">
-                <Logo />
+                <Logo color={isScrolled ? 'black' : 'white'} />
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:block ml-auto font-bold">
@@ -47,8 +69,8 @@ export default function Navbar() {
                     href={item.href}
                     aria-current={item.current ? 'page' : undefined}
                     className={classNames(
-                      item.current ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white',
-                      'rounded-md px-5 py-2 text-sm font-medium font-bebas',
+                      item.current ? 'bg-gray-950/50 text-white' : isScrolled ? 'text-gray-900 hover:bg-gray-100 hover:text-gray-700' : 'text-gray-300 hover:bg-white/5 hover:text-white',
+                      'rounded-md px-5 py-2 text-2xl font-medium font-bebas transition-colors',
                     )}
                   >
                     {item.name}
@@ -69,8 +91,8 @@ export default function Navbar() {
               href={item.href}
               aria-current={item.current ? 'page' : undefined}
               className={classNames(
-                item.current ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white',
-                'block rounded-md px-3 py-2 text-base font-bebas',
+                item.current ? 'bg-gray-950/50 text-white' : isScrolled ? 'text-gray-900 hover:bg-gray-100 hover:text-gray-700' : 'text-gray-300 hover:bg-white/5 hover:text-white',
+                'block rounded-md px-3 py-2 text-2xl font-bebas shadow-stone-100 transition-colors',
               )}
             >
               {item.name}
@@ -81,3 +103,4 @@ export default function Navbar() {
     </Disclosure>
   )
 }
+// ...existing code...

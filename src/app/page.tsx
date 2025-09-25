@@ -18,7 +18,7 @@ export default function Home() {
           }}
         >
           <div className="absolute inset-0 bg-black/10"></div> {/* Optional overlay for text readability */}
-          <span className="text-4xl md:text-7xl text-white text-center mb-12 font-bebas uppercase tracking-wide relative z-10">
+          <span className="text-4xl md:text-7xl text-white text-center mb-12 font-bebas uppercase relative z-10 font-bold tracking-tight">
             Transformamos a sua ideia numa ferramenta capaz de fazer o seu negócio progredir
           </span>
           <button className="bg-white cursor-pointer text-black rounded px-8 py-3 font-semibold shadow transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:translate-x-2 relative z-10">
@@ -39,7 +39,7 @@ export default function Home() {
         >
           <div className="absolute inset-0 bg-black/10"></div> {/* Optional overlay */}
           <div className="max-w-7xl mx-auto relative z-10">
-            <h2 className="text-4xl md:text-6xl text-white text-left mb-12 font-bebas uppercase tracking-wide">
+            <h2 className="text-4xl md:text-6xl text-dark text-left mb-12 font-bebas uppercase font-bold tracking-tight">
               Nossos Serviços
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 self-center">
@@ -48,18 +48,21 @@ export default function Home() {
                 title="SITES"
                 text="Desenvolvimento de sites full-stack custimazados com base nas necessidades do seu negócio"
                 href="#services"
+                iconSrc="/website-icon.svg"
               />
               <Card
                 imgSrc="/mobile.png"
                 title="APLICAÇÕES"
                 text="Aplicações móveis que vão tornar a sua ideia numa realidade"
                 href="#services"
+                iconSrc="/mobile-icon.svg"
               />
               <Card
                 imgSrc="/design.png"
                 title="DESIGN"
                 text="Tornamos o seu produto não apenas funcional mas também esteticamente apelativo"
                 href="#services"
+                iconSrc="/design-icon.svg"
               />
             </div>
           </div>

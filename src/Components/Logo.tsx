@@ -2,12 +2,11 @@ type LogoProps = {
   color?: 'white' | 'black'
 }
 
-// TODO: Optimize image?
-export default function Logo({color = 'white'}: LogoProps) {
+export default function Logo({ color = 'white' }: LogoProps) {
   return (
-    color == 'white' 
-      ? <img src="/Assests/Logo/mps_white.svg" alt="Logo"/> 
-      : <img src="/Assests/Logo/mps_black.svg" alt="Logo"/> 
+    color === 'white'
+      ? <img src="/Assets/Logo/mps_white.svg" alt="MPS Logo" className="h-10 w-auto" />
+      : <img src="/Assets/Logo/mps_black.svg" alt="MPS Logo" className="h-10 w-auto" />
   )
-}
 
+}
