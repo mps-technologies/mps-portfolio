@@ -1,4 +1,4 @@
-"use client";
+
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const navigation = [
   { name: 'Página Inicial', href: '/', current: false },
-  { name: 'Serviços', href: '#services', current: false },
+  { name: 'Serviços', href: '/services', current: false },
   { name: 'Projetos', href: '#projects', current: false },
   { name: 'Sobre nós', href: '#about', current: false },
 ]
@@ -17,15 +17,16 @@ function classNames(...classes: (string | boolean | undefined)[]) {
 
 export default function Navbar() {
   return (
+    <>
     <Disclosure
       as="nav"
-      className="sticky top-0 w-full bg-transparent backdrop-blur-lg border-b border-gray-200/30 shadow-lg transition-all duration-300 z-50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
+      className="fixed top-0 left-0 right-0 w-full bg-transparent backdrop-blur-lg border-b border-gray-200/30 shadow-lg transition-all duration-300 z-50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
     >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
             {/* Mobile menu button*/}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
+            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500 cursor-pointer">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
               <Bars3Icon aria-hidden="true" className="block size-6 group-data-open:hidden" />
@@ -50,7 +51,7 @@ export default function Navbar() {
                     aria-current={item.current ? 'page' : undefined}
                     className={classNames(
                       item.current ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white',
-                      'rounded-md px-5 py-2 text-sm font-medium font-bebas',
+                      'rounded-md px-5 py-2 text-lg font-medium',
                     )}
                   >
                     {item.name}
@@ -81,5 +82,6 @@ export default function Navbar() {
         </div>
       </DisclosurePanel>
     </Disclosure>
+    </>
   )
 }

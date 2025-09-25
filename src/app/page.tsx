@@ -15,7 +15,7 @@ export default function Home() {
         }}
       />
       <Navbar />
-      <div className="flex flex-col items-center justify-center h-full w-full gap-8">
+      <div className="flex flex-col items-center justify-center min-h-screen w-full gap-8 px-4">
         <span className="text-5xl text-white text-center fonts-bold">
           Transformamos a sua ideia numa ferramenta capaz de fazer o seu negócio progredir
         </span>
