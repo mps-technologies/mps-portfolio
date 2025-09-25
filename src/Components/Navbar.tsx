@@ -39,7 +39,7 @@ export default function Navbar() {
                 <Logo />
               </Link>
             </div>
-            <div className="hidden sm:ml-6 sm:block ml-auto">
+            <div className="hidden sm:ml-6 sm:block ml-auto font-bold">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
                   <Link
