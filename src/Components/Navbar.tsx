@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="sticky top-0 w-full bg-transparent backdrop-blur-lg border-b border-gray-200/30 shadow-lg transition-all duration-300 z-50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
+      className="fixed top-0 w-full bg-transparent backdrop-blur-lg border-b border-gray-200/30 shadow-lg transition-all duration-300 z-50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
     >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
@@ -70,7 +70,7 @@ export default function Navbar() {
               aria-current={item.current ? 'page' : undefined}
               className={classNames(
                 item.current ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white',
-                'block rounded-md px-3 py-2 text-base font-medium font-bebas',
+                'block rounded-md px-3 py-2 text-base font-bebas',
               )}
             >
               {item.name}
