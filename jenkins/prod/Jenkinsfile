@@ -5,7 +5,9 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo "Checking out code..."
-                git branch: 'main', url: 'git@github.com:mps-technologies/mps-portfolio.git', credentialsId: 'f8e864e4-84c4-442b-926d-50ac10a1a64f'
+		sshagent(['f8e864e4-84c4-442b-926d-50ac10a1a64f']) {
+                	git branch: 'main', url: 'git@github.com:mps-technologies/mps-portfolio.git' 
+		}
             }
         }
 
