@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo "Checking out code..."
+                git branch: 'main', url: 'git@github.com:mps-technologies/mps-portfolio.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo "Building the project..."
+                // Replace with your build command, e.g.:
+                // sh 'mvn clean package'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Running tests..."
+                // Replace with your test command, e.g.:
+                // sh 'mvn test'
+            }
+        }
+
+        stage('Deploy') {
+            when {
+                branch 'main' // Only deploy on main branch
+            }
+            steps {
+                echo "Deploying the project..."
+                // Replace with your deployment steps
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Pipeline finished successfully!"
+        }
+        failure {
+            echo "Pipeline failed!"
+        }
+    }
+}
+
