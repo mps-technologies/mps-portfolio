@@ -5,7 +5,6 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo "Checking out code..."
-                git branch: 'main', url: 'git@github.com:mps-technologies/mps-portfolio.git'
             }
         }
 
