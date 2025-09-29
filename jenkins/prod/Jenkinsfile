@@ -2,15 +2,13 @@ pipeline {
     agent any
 
     stages {
-      stage('Setup Infisical'){
-        steps {
-          // Install 
-          sh 'npm install -g @infisical/cli'
+        stage('Setup Infisical'){
+          steps {
+            // Install 
+            sh 'npm install -g @infisical/cli'
+          }
         }
-      }
-    }
 
-    stages {
         stage('Checkout') {
             steps {
                 echo "Checking out code..."
