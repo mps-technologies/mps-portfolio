@@ -2,6 +2,15 @@ pipeline {
     agent any
 
     stages {
+      stage('Setup Infisical'){
+        steps {
+          // Install 
+          sh 'npm install -g @infisical/cli'
+        }
+      }
+    }
+
+    stages {
         stage('Checkout') {
             steps {
                 echo "Checking out code..."
@@ -17,6 +26,15 @@ pipeline {
                 // Replace with your build command, e.g.:
                 // sh 'mvn clean package'
             }
+        }
+
+        stage('Semgrep Scan') {
+          SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+
+          steps {
+            sh 'pip3 install semgrep'
+            sh 'semgrep ci'
+          }
         }
 
         stage('Test') {
