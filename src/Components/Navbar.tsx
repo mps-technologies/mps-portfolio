@@ -38,8 +38,8 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className={`fixed top-0 w-full backdrop-blur-lg border-b border-gray-200/30 shadow-lg transition-all duration-300 z-50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 ${
-        isScrolled ? 'bg-white/90' : 'bg-transparent'
+      className={`fixed top-0 w-full backdrop-blur-sm border-b border-gray-200/30 shadow-lg transition-all duration-300 z-50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 ${
+        isScrolled ? 'bg-white/40' : 'bg-transparent'
       }`}
     >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -103,4 +103,3 @@ export default function Navbar() {
     </Disclosure>
   )
 }
-// ...existing code...

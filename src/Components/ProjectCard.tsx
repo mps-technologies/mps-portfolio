@@ -3,16 +3,16 @@ export interface CardProps {
   title?: string;
   text?: string;
   href?: string;
-  iconSrc?: string;
+  hrefProject?: string;
   className?: string;
 }
 
-export default function Card({
+export default function ProjectCard({
   imgSrc = "/bgImg.svg",
   title = "SITES",
   text = "Desenvolvimento de sites full-stack custimazados com base nas necessidades do seu negócio",
   href = "#",
-  iconSrc,
+  hrefProject = "/",
   className = "",
 }: CardProps) {
   return (
@@ -26,15 +26,8 @@ export default function Card({
       </a>
 
       <div className="p-5">
-        <a href={href} aria-label={title}>
+        <a href={hrefProject} aria-label={title}>
           <div className="flex items-center mb-2">
-            {iconSrc && (
-              <img
-                src={iconSrc}
-                alt={`${title} icon`}
-                className="w-6 h-6 mr-2"
-              />
-            )}
             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-bebas">
               {title}
             </h5>
@@ -44,9 +37,14 @@ export default function Card({
         <p className="mb-4 font-normal text-gray-700 dark:text-gray-400 font-nunito">
           {text}
         </p>
-            
+        <a href= {hrefProject} target="_blank" rel="noopener noreferrer">
+          <button  className="bg-black cursor-pointer text-white rounded px-4 py-2 font-semibold shadow transition-all duration-300 ease-in-out hover:bg-white hover:text-black hover:translate-x-2">
+          Saber mais
+          </button>
+        </a>
+        
+
       </div>
     </article>
   );
 }
-
