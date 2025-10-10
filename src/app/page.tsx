@@ -83,7 +83,7 @@ export default function Home() {
               Nossos Projetos
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 self-center">
-              
+              {/* O objetivo na escolha destes projetos é cada um deles demonstrar uma habilidade ou tecnologia específica */}
                 <ProjectCard
                 imgSrc="/BarberShop.png"
                 title="Barbearia"
@@ -102,7 +102,7 @@ export default function Home() {
 
                 <ProjectCard
                 imgSrc="/frota.png"
-                title="Moviefy"
+                title="Frota"
                 text="Site não funcional (demonstração) focado em administração em vez de venda de produto onde o foco é gerencia interna neste de caso de um frota de carros"
                 href="#projects"
                 hrefProject="https://gestor-frota.netlify.app/"

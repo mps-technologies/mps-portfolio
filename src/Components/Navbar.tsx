@@ -8,7 +8,6 @@ import { useState, useEffect } from 'react'
 import Logo from './Logo';
 
 const navigation = [
-  { name: 'Página Inicial', href: '/', current: false },
   { name: 'Serviços', href: '#services', current: false },
   { name: 'Projetos', href: '#projects', current: false },
   { name: 'Sobre nós', href: '#about', current: false },
