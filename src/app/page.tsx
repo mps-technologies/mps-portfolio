@@ -1,4 +1,3 @@
-
 import Card from "@/Components/Card";
 import ProjectCard from "@/Components/ProjectCard";
 import Navbar from "../Components/Navbar";
@@ -111,11 +110,34 @@ export default function Home() {
 
             </div>
           </div>
-        {/* AboutUs Section */}
         </section>
+          {/* AboutUs Section */}
+        <section
+          id="about"
+          className="min-h-screen w-full py-16 px-4 md:px-8 lg:px-16 flex items-center scroll-mt-16"
+        >
 
-        <section>
+        
+          <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center gap-8">
+            {/* Text (left) */}
+            <div className="w-full md:w-1/2 relative z-10">
+              <h2 className="text-4xl md:text-6xl text-gray-900 mb-6 font-bebas uppercase font-bold tracking-tight">
+                Sobre nós
+              </h2>
+              <p className="text-lg md:text-2xl text-gray-700 font-nunito leading-relaxed">
+                Somos a MPS Technologies, formada por Misael, Pedro e Samuel. Unimos experiência e dedicação para desenvolver sites completos e de confiança, ajudando pequenas empresas a crescer com soluções digitais simples e eficazes
+              </p>
+            </div>
 
+            {/* Image (right) */}
+            <div className="w-full md:w-1/2">
+              <img
+                src="/todos.svg"
+                alt="Sobre nós — MPS Technologies"
+                className="w-full h-64 md:h-96 object-cover rounded-lg shadow-md"
+              />
+            </div>
+          </div>
         </section>
       </main>
     </div>
