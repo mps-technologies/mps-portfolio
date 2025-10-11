@@ -111,65 +111,86 @@ export default function Home() {
             </div>
           </div>
         </section>
-          {/* AboutUs Section */}
-          <section
+            {/* AboutUs Section */}
+            <section
             id="about"
-            className="min-h-screen w-full py-16 px-4 md:px-8 lg:px-16 flex flex-col items-center scroll-mt-16 bg-gray-50"
-          >
-            <div className="max-w-7xl mx-auto w-full flex flex-col items-center gap-12">
+            className="min-h-screen w-full py-16 px-4 md:px-8 lg:px-16 flex flex-col items-center scroll-mt-16 bg-gray-50 relative overflow-hidden"
+            style={{
+              // Only show background image on md (tablet) and up
+              backgroundImage:
+              typeof window !== "undefined" && window.innerWidth >= 768
+                ? 'url("/todos.svg")'
+                : "none",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+            }}
+            >
+            {/* Overlay for readability */}
+            <div className="absolute inset-0 bg-white/70 pointer-events-none"></div>
+            <div className="max-w-7xl mx-auto w-full flex flex-col items-center gap-12 relative z-10">
               {/* Intro */}
               <div className="w-full md:w-3/4 text-center mb-8">
-                <h2 className="text-4xl md:text-6xl text-gray-900 mb-6 font-bebas uppercase font-bold tracking-tight">
-                  Sobre nós
-                </h2>
-                <p className="text-lg md:text-2xl text-gray-700 font-nunito leading-relaxed">
-                  Somos a MPS Technologies, formada por Misael, Pedro e Samuel. Unimos experiência e dedicação para desenvolver sites completos e de confiança, ajudando pequenas empresas a crescer com soluções digitais simples e eficazes.
-                </p>
+              <h2 className="text-4xl md:text-6xl text-gray-900 mb-6 font-bebas uppercase font-bold tracking-tight">
+              Sobre nós
+              </h2>
+              <p className="text-lg md:text-2xl text-gray-700 font-nunito leading-relaxed">
+              Somos a MPS Technologies, formada por Misael, Pedro e Samuel. Unimos experiência e dedicação para desenvolver sites completos e de confiança, ajudando pequenas empresas a crescer com soluções digitais simples e eficazes.
+              </p>
               </div>
               {/* Team Members */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full">
-                {/* Misael */}
-                <div className="flex flex-col items-center bg-white rounded-lg shadow-md p-6 h-full">
-                  <img
-                    src="/misael.svg"
-                    alt="Misael Armando — MPS Technologies"
-                    className="w-40 h-40 md:w-48 md:h-48 object-cover rounded-full shadow mb-4"
-                  />
-                  <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-900 font-bebas">Misael Armando</h3>
-                    <p className="text-base text-gray-600 font-nunito">Desenvolvedor full-stack</p>
-                    <p className="text-sm text-gray-500 font-nunito">Lisboa, Portugal</p>
-                  </div>
-                </div>
-                {/* Pedro */}
-                <div className="flex flex-col items-center bg-white rounded-lg shadow-md p-6 h-full">
-                  <img
-                    src="/pedro.svg"
-                    alt="Pedro Bonfim — MPS Technologies"
-                    className="w-40 h-40 md:w-48 md:h-48 object-cover rounded-full shadow mb-4"
-                  />
-                  <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-900 font-bebas">Pedro Bonfim</h3>
-                    <p className="text-base text-gray-600 font-nunito">Product Manager</p>
-                    <p className="text-sm text-gray-500 font-nunito">Loures, Portugal</p>
-                  </div>
-                </div>
-                {/* Samuel */}
-                <div className="flex flex-col items-center bg-white rounded-lg shadow-md p-6 h-full">
-                  <img
-                    src="/samuel.svg"
-                    alt="Samuel Santos — MPS Technologies"
-                    className="w-40 h-40 md:w-48 md:h-48 object-cover rounded-full shadow mb-4"
-                  />
-                  <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-900 font-bebas">Samuel Santos</h3>
-                    <p className="text-base text-gray-600 font-nunito">Desenvolvedor full-stack</p>
-                    <p className="text-sm text-gray-500 font-nunito">Loures, Portugal</p>
-                  </div>
-                </div>
+              {/* Misael */}
+              <div className="flex flex-col items-center bg-white rounded-lg shadow-md p-6 h-full">
+              <img
+              src="/misael.svg"
+              alt="Misael Armando — MPS Technologies"
+              className="w-40 h-40 md:w-48 md:h-48 object-cover rounded-full shadow mb-4"
+              />
+              <div className="text-center">
+              <h3 className="text-2xl font-bold text-gray-900 font-bebas">Misael Armando</h3>
+              <p className="text-base text-gray-600 font-nunito">Desenvolvedor full-stack</p>
+              <div className="flex items-center justify-center gap-2">
+                <img src="/location.svg" alt="location icon" className="w-4 h-4" />
+                <p className="text-sm text-gray-500 font-nunito">Lisboa, Portugal</p>
+              </div>
+              </div>
+              </div>
+              {/* Pedro */}
+              <div className="flex flex-col items-center bg-white rounded-lg shadow-md p-6 h-full">
+              <img
+              src="/pedro.svg"
+              alt="Pedro Bonfim — MPS Technologies"
+              className="w-40 h-40 md:w-48 md:h-48 object-cover rounded-full shadow mb-4"
+              />
+              <div className="text-center">
+              <h3 className="text-2xl font-bold text-gray-900 font-bebas">Pedro Bonfim</h3>
+              <p className="text-base text-gray-600 font-nunito">Product Manager</p>
+              <div className="flex items-center justify-center gap-2">
+                <img src="/location.svg" alt="location icon" className="w-4 h-4" />
+                <p className="text-sm text-gray-500 font-nunito">Loures, Portugal</p>
+              </div>
+              </div>
+              </div>
+              {/* Samuel */}
+              <div className="flex flex-col items-center bg-white rounded-lg shadow-md p-6 h-full">
+              <img
+              src="/samuel.svg"
+              alt="Samuel Santos — MPS Technologies"
+              className="w-40 h-40 md:w-48 md:h-48 object-cover rounded-full shadow mb-4"
+              />
+              <div className="text-center">
+              <h3 className="text-2xl font-bold text-gray-900 font-bebas">Samuel Santos</h3>
+              <p className="text-base text-gray-600 font-nunito">Desenvolvedor full-stack</p>
+              <div className="flex items-center justify-center gap-2">
+                <img src="/location.svg" alt="location icon" className="w-4 h-4" />
+                <p className="text-sm text-gray-500 font-nunito">Loures, Portugal</p>
+              </div>
+              </div>
+              </div>
               </div>
             </div>
-          </section>
+            </section>
       </main>
     </div>
   );
