@@ -1,8 +1,16 @@
+"use client";
+
+import { useState } from "react";
+import ContactModal from "@/Components/contactModal";
 import Card from "@/Components/Card";
 import ProjectCard from "@/Components/ProjectCard";
 import Navbar from "../Components/Navbar";
 
+
+
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="relative w-full font-sans p-0 m-0">
       <Navbar />
@@ -21,9 +29,14 @@ export default function Home() {
           <span className="text-4xl md:text-7xl text-white text-center mb-12 font-bebas uppercase relative z-10 font-bold tracking-tight">
             Transformamos a sua ideia numa ferramenta capaz de fazer o seu negócio progredir
           </span>
-          <button className="bg-white cursor-pointer text-black rounded px-8 py-3 font-semibold shadow transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:translate-x-2 relative z-10">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="bg-white cursor-pointer text-black rounded px-8 py-3 font-semibold shadow transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:translate-x-2 relative z-10"
+          >
             Contacte-nos
           </button>
+
+          <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </section>
 
         {/* Serviços Section */}
@@ -68,16 +81,16 @@ export default function Home() {
           </div>
         </section>
         {/* Projects Section */}
-        <section 
-        id="projects"
-        className="min-h-screen w-full py-16 px-4 md:px-8 lg:px-16 bg-centered relative flex flex-col justify-center"
+        <section
+          id="projects"
+          className="min-h-screen w-full py-16 px-4 md:px-8 lg:px-16 bg-centered relative flex flex-col justify-center"
           style={{
             backgroundColor: "white",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
           }}>
-            <div className="max-w-7xl mx-auto relative z-10">
+          <div className="max-w-7xl mx-auto relative z-10">
             <h2 className="text-4xl md:text-6xl text-dark text-left mb-12 font-bebas uppercase font-bold tracking-tight">
               Nossos Projetos
             </h2>
@@ -88,7 +101,7 @@ export default function Home() {
                 title="Barbearia"
                 text="Site para barbearia não funcional, apenas para demonstração de layout e design"
                 href="#projects"
-                hrefProject="https://connected-barbershop.netlify.app/"
+                hrefProject="https://barbershop-mps.netlify.app"
                 />
 
                 <ProjectCard
@@ -115,16 +128,6 @@ export default function Home() {
             <section
             id="about"
             className="min-h-screen w-full py-16 px-4 md:px-8 lg:px-16 flex flex-col items-center scroll-mt-16 bg-gray-50 relative overflow-hidden"
-            style={{
-              // Only show background image on md (tablet) and up
-              backgroundImage:
-              typeof window !== "undefined" && window.innerWidth >= 768
-                ? 'url("/todos.svg")'
-                : "none",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-            }}
             >
             {/* Overlay for readability */}
             <div className="absolute inset-0 bg-white/70 pointer-events-none"></div>
