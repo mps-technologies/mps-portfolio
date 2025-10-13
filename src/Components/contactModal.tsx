@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {
   isOpen: boolean;
@@ -7,6 +7,8 @@ type Props = {
 };
 
 export default function ContactModal({ isOpen, onClose }: Props) {
+  const [subject, setSubject] = useState("Website");
+
   useEffect(() => {
     if (!isOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -49,10 +51,13 @@ export default function ContactModal({ isOpen, onClose }: Props) {
           {/* body / form */}
           <div className="px-6 py-6">
             <form
-              action="https://formspree.io/f/xnqvjqwv"
+              action="https://formspree.io/f/xkgqpzqz"
               method="POST"
               className="space-y-4"
             >
+              {/* Hidden field for subject */}
+              <input type="hidden" name="_subject" value={subject} />
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-200">
@@ -100,10 +105,9 @@ export default function ContactModal({ isOpen, onClose }: Props) {
                         value={option.value}
                         className="sr-only peer"
                         defaultChecked={idx === 0}
+                        onChange={() => setSubject(option.value)}
                       />
-                      <span className="inline-flex items-center px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-600 transition
-                        peer-checked:bg-blue-700 peer-checked:text-white peer-checked:dark:bg-blue-700 peer-checked:dark:text-white
-                      ">
+                      <span className="inline-flex items-center px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-600 transition peer-checked:bg-blue-700 peer-checked:text-white peer-checked:dark:bg-blue-700 peer-checked:dark:text-white">
                         {option.label}
                       </span>
                     </label>
