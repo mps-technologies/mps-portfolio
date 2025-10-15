@@ -8,9 +8,14 @@ pipeline {
         stage('Fetch secrets'){
           steps {
             withVault([
-              configuration: [vaultUrl: "${env.VAULT_ADDR}", vaultCredentialId: 'vault-jenkins'],
+              configuration: [
+                vaultUrl: "${env.VAULT_ADDR}", 
+                vaultCredentialId: 'vault-jenkins',
+                engineVersion: 1
+              ],
               vaultSecrets: [
-                [path: 'secret/ci', secretValues: [envVar: "TEST_DATA", vaultKey: "TEST"]]
+                [path: 'secret/data/ci', engineVersion: 1, secretValues: [
+                  [envVar: "TEST_DATA", vaultKey: "TEST"]]]
               ]]
             ) {
               sh '''
