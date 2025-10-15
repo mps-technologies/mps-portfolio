@@ -10,13 +10,13 @@ pipeline {
             withVault(
               configuration: [vaultUrl: "${env.VAULT_ADDR}", vaultCredentialId: 'vault-jenkins'],
               vaultSecrets: [
-                [path: 'secret/data/ci/deploy', secretValues: []]
+                [path: 'secret/data/ci', secretValues: [envVar: "TEST_DATA", vaultKey: "TEST_DATA"]]
               ]
             )
           
             {
               sh '''
-                echo "Test working"
+                echo Test working with $TEST_DATA
               '''
             }
           }
