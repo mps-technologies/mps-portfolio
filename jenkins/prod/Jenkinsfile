@@ -18,7 +18,8 @@ pipeline {
               ]]
             ) {
               sh '''
-                echo Test working with $TEST_DATA
+                echo $TEST_DATA > /tmp/test_data.txt
+                cat /tmp/test_data.txt
               '''
             }
           }
