@@ -1,15 +1,17 @@
 pipeline {
     agent any
+    environment {
+      VAULT_ADDR = 'https://vault.misaels.eu'
+    }
 
     stages {
-        environment {
-          VAULT_ADDR = 'https://vault.misaels.eu'
-        }
-
         stage('Fetch secrets'){
           steps {
             withVault(
               configuration: [vaultUrl: "${env.VAULT_ADDR}", credentials: 'vault-jenkins']
+              vaultSecrets: [
+                [path: 'secret/data/ci/deploy', secretValues: []]
+              ]
             )
           
             {
