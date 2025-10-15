@@ -10,11 +10,10 @@ pipeline {
             withVault([
               configuration: [
                 vaultUrl: "${env.VAULT_ADDR}", 
-                vaultCredentialId: 'vault-jenkins',
-                engineVersion: 1
+                vaultCredentialId: 'vault-jenkins'
               ],
               vaultSecrets: [
-                [path: 'secret/ci', engineVersion: 1, secretValues: [
+                [path: 'secret/ci', secretValues: [
                   [envVar: "TEST_DATA", vaultKey: "TEST"]]]
               ]]
             ) {
