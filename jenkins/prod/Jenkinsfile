@@ -2,10 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Setup Infisical'){
+        environment {
+          VAULT_ADDR = 'https://vault.misaels.eu'
+        }
+
+        stage('Fetch secrets'){
           steps {
-            // Install 
-            sh 'npm install -g @infisical/cli'
+            withVault(
+              configuration: [vaultUrl: "${env.VAULT_ADDR}", credentials: 'vault-jenkins']
+            )
+          
+            {
+              sh '''
+                echo "Test working"
+              '''
+            }
           }
         }
 
