@@ -14,7 +14,7 @@ pipeline {
                 engineVersion: 1
               ],
               vaultSecrets: [
-                [path: 'secret/ci', engineVersion: 1, secretValues: [
+                [path: 'secret/data/ci', engineVersion: 1, secretValues: [
                   [envVar: "TEST_DATA", vaultKey: "TEST"]]]
               ]]
             ) {
