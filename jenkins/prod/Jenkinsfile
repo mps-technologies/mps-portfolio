@@ -7,14 +7,12 @@ pipeline {
     stages {
         stage('Fetch secrets'){
           steps {
-            withVault(
+            withVault([
               configuration: [vaultUrl: "${env.VAULT_ADDR}", vaultCredentialId: 'vault-jenkins'],
               vaultSecrets: [
                 [path: 'secret/ci', secretValues: [envVar: "TEST_DATA", vaultKey: "TEST"]]
-              ]
-            )
-          
-            {
+              ]]
+            ) {
               sh '''
                 echo Test working with $TEST_DATA
               '''
