@@ -20,6 +20,7 @@ pipeline {
               sh '''
                 echo $TEST_DATA > /tmp/test_data.txt
                 cat /tmp/test_data.txt
+                env | grep TEST_DATA
               '''
             }
           }
