@@ -24,6 +24,7 @@ export default function Navbar() {
     const servicesElement = document.getElementById('services');
     if (servicesElement) {
       const servicesTop = servicesElement.offsetTop - 64; // Subtract navbar height for better timing
+      setIsScrolled(window.scrollY >= servicesTop);
 
       const handleScroll = () => {
         setIsScrolled(window.scrollY >= servicesTop);

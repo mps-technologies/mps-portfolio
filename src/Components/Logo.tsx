@@ -1,12 +1,30 @@
+import Image from "next/image";
+
 type LogoProps = {
-  color?: 'white' | 'black'
+  color?: 'white' | 'black',
+  size?: number
 }
 
-export default function Logo({ color = 'white' }: LogoProps) {
+type LogoImageProps = {
+  src: string
+}
+
+export default function Logo({ color = 'white', size = 80 }: LogoProps) {
+  const LogoImage = ({src}: LogoImageProps) => {
+    return <div className="h-10 w-auto">
+      <Image 
+      src={src} 
+      alt="MPS Logo"
+      width={size}
+      height={size}
+      priority 
+    />
+    </div>
+  }
   return (
     color === 'white'
-      ? <img src="/Assets/Logo/mps_white.svg" alt="MPS Logo" className="h-10 w-auto" />
-      : <img src="/Assets/Logo/mps_black.svg" alt="MPS Logo" className="h-10 w-auto" />
+      ? <LogoImage src="/Assets/Logo/mps_white.svg" />
+      : <LogoImage src="/Assets/Logo/mps_black.svg" />
   )
 
 }

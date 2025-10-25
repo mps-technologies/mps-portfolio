@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export interface CardProps {
   imgSrc?: string;
   title?: string;
@@ -16,34 +18,39 @@ export default function ProjectCard({
   className = "",
 }: CardProps) {
   return (
-    <article className={`max-w-sm bg-white border border-gray-200 rounded-lg shadow-2xl dark:bg-gray-800 dark:border-white ${className}`}>
+    <article className={`max-w-sm bg-white border border-gray-200 rounded-lg shadow-2xl dark:bg-gray-800 dark:border-white ${className} h-120`}>
       <a href={href} aria-label={title}>
-        <img
-          className="rounded-t-lg w-full object-cover h-48 md:h-56"
-          src={imgSrc}
-          alt={title}
-        />
+        <div className="relative rounded-t-lg w-full h-48 md:h-56 overflow-hidden">
+          <Image
+            src={imgSrc}
+            alt={title}
+            fill
+            style={{ objectFit: "cover" }}
+            loading="lazy"
+          />
+        </div>
       </a>
 
-      <div className="p-5">
-        <a href={hrefProject} aria-label={title}>
-          <div className="flex items-center mb-2">
-            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-bebas">
-              {title}
-            </h5>
-          </div>
-        </a>
+      <div className="flex flex-col justify-between p-5 h-64">
+        <div>
+          <a href={hrefProject} aria-label={title}>
+            <div className="flex items-center mb-2">
+              <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-bebas">
+                {title}
+              </h5>
+            </div>
+          </a>
 
-        <p className="mb-4 font-normal text-gray-700 dark:text-gray-400 font-nunito">
-          {text}
-        </p>
-        <a href= {hrefProject} target="_blank" rel="noopener noreferrer">
-          <button  className="bg-black cursor-pointer text-white rounded px-4 py-2 font-semibold shadow transition-all duration-300 ease-in-out hover:bg-white hover:text-black hover:translate-x-2">
-          Saber mais
+          <p className="mb-4 font-normal text-gray-700 dark:text-gray-400 font-nunito">
+            {text}
+          </p>
+        </div>
+
+        <a href={hrefProject} target="_blank" rel="noopener noreferrer">
+          <button className="bg-black cursor-pointer text-white rounded px-4 py-2 font-semibold shadow transition-all duration-300 ease-in-out hover:bg-white hover:text-black hover:translate-x-2">
+            Saber mais
           </button>
         </a>
-        
-
       </div>
     </article>
   );

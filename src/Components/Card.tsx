@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export interface CardProps {
   imgSrc?: string;
   title?: string;
@@ -18,21 +20,28 @@ export default function Card({
   return (
     <article className={`max-w-sm bg-white border border-gray-200 rounded-lg shadow-2xl dark:bg-gray-800 dark:border-white ${className}`}>
       <a href={href} aria-label={title}>
-        <img
-          className="rounded-t-lg w-full object-cover h-48 md:h-56"
-          src={imgSrc}
-          alt={title}
-        />
+        <div className="relative rounded-t-lg w-full h-48 md:h-56">
+          <Image
+            src={imgSrc}
+            alt={title}
+            fill
+            style={{ objectFit: "cover" }}
+            loading="lazy"
+          />
+        </div>
       </a>
 
       <div className="p-5">
         <a href={href} aria-label={title}>
           <div className="flex items-center mb-2">
             {iconSrc && (
-              <img
+              <Image
+                className="mr-2"
                 src={iconSrc}
                 alt={`${title} icon`}
-                className="w-6 h-6 mr-2"
+                width={24}
+                height={24}
+                loading="lazy"
               />
             )}
             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-bebas">
