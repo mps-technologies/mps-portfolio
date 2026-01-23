@@ -1,22 +1,19 @@
 "use client";
 
 import Card from "@/Components/Card";
-import Image from "next/image";
 
 export default function OurServices() {
   return (
     <>
       <section
         id="services"
-        className="min-h-screen w-full py-16 px-4 md:px-8 lg:px-16 bg-centered relative flex flex-col justify-center">
-
-      <Image
-          src="/service-bg.png"
-          alt="Our services background image"
-          fill
-          style={{ objectFit: "cover" }}
-          priority
-        />
+        className="min-h-screen w-full py-16 px-4 md:px-8 lg:px-16 bg-centered relative flex flex-col justify-center"
+        style={{
+            backgroundColor: "white",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}>
 
         <div className="absolute inset-0 bg-black/10"></div> {/* Optional overlay */}
         <div className="max-w-7xl mx-auto relative z-10">
