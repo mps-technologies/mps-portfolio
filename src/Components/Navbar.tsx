@@ -1,10 +1,10 @@
 // ...existing code...
 "use client";
 
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import Logo from './Logo';
 
 const navigation = [
@@ -17,7 +17,11 @@ function classNames(...classes: (string | boolean | undefined)[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+type NavbarProps = {
+  onContactClick: () => void;
+}
+
+export default function Navbar({ onContactClick }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -62,7 +66,7 @@ export default function Navbar() {
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:block ml-auto font-bold">
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 items-center">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
@@ -76,6 +80,12 @@ export default function Navbar() {
                     {item.name}
                   </Link>
                 ))}
+                <button
+                  onClick={onContactClick}
+                  className="bg-white cursor-pointer text-black rounded px-8 py-3 font-semibold shadow transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:translate-x-2"
+                >
+                  Contacte-nos
+                </button>
               </div>
             </div>
           </div>
@@ -98,6 +108,12 @@ export default function Navbar() {
               {item.name}
             </DisclosureButton>
           ))}
+          <button
+            onClick={onContactClick}
+            className="bg-white cursor-pointer text-black rounded px-8 py-3 font-semibold shadow transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:translate-x-2 w-full mt-2"
+          >
+            Contacte-nos
+          </button>
         </div>
       </DisclosurePanel>
     </Disclosure>

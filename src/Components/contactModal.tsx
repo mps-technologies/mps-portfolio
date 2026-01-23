@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   isOpen: boolean;
@@ -23,17 +23,17 @@ export default function ContactModal({ isOpen, onClose }: Props) {
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-[60] flex items-center justify-center p-4 overflow-y-auto"
     >
       {/* backdrop */}
       <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm"
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* modal */}
-      <div className="relative w-full max-w-2xl rounded-lg overflow-hidden shadow-2xl">
+      <div className="relative w-full max-w-2xl rounded-lg overflow-hidden shadow-2xl my-8">
         <div className="bg-white dark:bg-gray-800 rounded-lg">
           {/* header */}
           <div className="flex items-center justify-between px-6 py-4 border-b dark:border-gray-700">
