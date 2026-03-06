@@ -1,121 +1,145 @@
-// ...existing code...
-"use client";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import Logo from './Logo';
+const navLinks = [
+  { label: 'Serviços', href: '#services' },
+  { label: 'Projetos', href: '#projects' },
+  { label: 'Clientes', href: '#clients' },
+  { label: 'Sobre nós', href: '#about' },
+];
 
-const navigation = [
-  { name: 'Serviços', href: '#services', current: false },
-  { name: 'Projetos', href: '#projects', current: false },
-  { name: 'Sobre nós', href: '#about', current: false },
-]
-
-function classNames(...classes: (string | boolean | undefined)[]) {
-  return classes.filter(Boolean).join(' ')
-}
-
-type NavbarProps = {
-  onContactClick: () => void;
-}
-
-export default function Navbar({ onContactClick }: NavbarProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
+export function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const servicesElement = document.getElementById('services');
-    if (servicesElement) {
-      const servicesTop = servicesElement.offsetTop - 64; // Subtract navbar height for better timing
-      setIsScrolled(window.scrollY >= servicesTop);
-
-      const handleScroll = () => {
-        setIsScrolled(window.scrollY >= servicesTop);
-      };
-
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    }
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <Disclosure
-      as="nav"
-      className={`fixed top-0 w-full backdrop-blur-sm border-b border-gray-200/30 shadow-lg transition-all duration-300 z-50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 ${
-        isScrolled ? 'bg-white/40' : 'bg-transparent'
-      }`}
-    >
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
-            {/* Mobile menu button*/}
-            <DisclosureButton className={`group relative inline-flex items-center justify-center rounded-md p-2 hover:bg-white/5 focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500 ${
-              isScrolled ? 'text-gray-900 hover:text-gray-700' : 'text-gray-400 hover:text-white'
-            }`}>
-              <span className="absolute -inset-0.5" />
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="block size-6 group-data-open:hidden" />
-              <XMarkIcon aria-hidden="true" className="hidden size-6 group-data-open:block" />
-            </DisclosureButton>
-          </div>
-          <div className="flex flex-1 items-center justify-between">
-            <div className="flex shrink-0 items-center">
-              <Link href="/" className="cursor-pointer">
-                <Logo color={isScrolled ? 'black' : 'white'} />
-              </Link>
-            </div>
-            <div className="hidden sm:ml-6 sm:block ml-auto font-bold">
-              <div className="flex space-x-4 items-center">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
-                    className={classNames(
-                      item.current ? 'bg-gray-950/50 text-white' : isScrolled ? 'text-gray-900 hover:bg-gray-100 hover:text-gray-700' : 'text-gray-300 hover:bg-white/5 hover:text-white',
-                      'rounded-md px-5 py-2 text-2xl font-medium font-bebas transition-colors',
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-                <button
-                  onClick={onContactClick}
-                  className="bg-white cursor-pointer text-black rounded px-8 py-3 font-semibold shadow transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:translate-x-2"
-                >
-                  Contacte-nos
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  const handleLinkClick = () => setMobileOpen(false);
 
-      <DisclosurePanel className="sm:hidden">
-        <div className="space-y-1 px-2 pt-2 pb-3">
-          {navigation.map((item) => (
-            <DisclosureButton
-              key={item.name}
-              as="a"
-              href={item.href}
-              aria-current={item.current ? 'page' : undefined}
-              className={classNames(
-                item.current ? 'bg-gray-950/50 text-white' : isScrolled ? 'text-gray-900 hover:bg-gray-100 hover:text-gray-700' : 'text-gray-300 hover:bg-white/5 hover:text-white',
-                'block rounded-md px-3 py-2 text-2xl font-bebas shadow-stone-100 transition-colors',
-              )}
+  return (
+    <>
+      <motion.nav
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        style={{
+          backgroundColor: scrolled ? 'rgba(8,14,30,0.88)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(16px)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+          borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          {/* Logo */}
+          <a href="#hero" className="flex items-center gap-1 group">
+            <span className="font-heading font-bold text-2xl tracking-tight text-white">
+              M
+            </span>
+            <motion.span
+              className="font-heading font-bold text-2xl tracking-tight"
+              style={{ color: 'var(--color-primary)' }}
             >
-              {item.name}
-            </DisclosureButton>
-          ))}
-          <button
-            onClick={onContactClick}
-            className="bg-white cursor-pointer text-black rounded px-8 py-3 font-semibold shadow transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:translate-x-2 w-full mt-2"
+              P
+            </motion.span>
+            <span className="font-heading font-bold text-2xl tracking-tight text-white">
+              S
+            </span>
+          </a>
+
+          {/* Desktop Links */}
+          <ul className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="relative font-body text-sm font-medium text-white/80 hover:text-white transition-colors duration-200 group"
+                >
+                  {link.label}
+                  <span
+                    className="absolute -bottom-1 left-0 h-px w-0 group-hover:w-full transition-all duration-300"
+                    style={{ backgroundColor: 'var(--color-primary)' }}
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA Desktop */}
+          <a
+            href="mailto:info@mpstechnologies.eu"
+            className="hidden md:inline-flex items-center gap-2 px-5 py-2 font-heading font-semibold text-sm text-dark rounded-full transition-all duration-300 hover:scale-105"
+            style={{ backgroundColor: 'var(--color-primary)' }}
           >
             Contacte-nos
+          </a>
+
+          {/* Mobile Hamburger */}
+          <button
+            onClick={() => setMobileOpen((v) => !v)}
+            className="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
-      </DisclosurePanel>
-    </Disclosure>
-  )
+      </motion.nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="fixed top-16 left-0 right-0 z-40 md:hidden"
+            style={{
+              backgroundColor: 'rgba(8,14,30,0.97)',
+              backdropFilter: 'blur(20px)',
+              borderBottom: '1px solid rgba(255,255,255,0.08)',
+            }}
+          >
+            <ul className="flex flex-col py-6 px-6 gap-5">
+              {navLinks.map((link, i) => (
+                <motion.li
+                  key={link.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.07 }}
+                >
+                  <a
+                    href={link.href}
+                    onClick={handleLinkClick}
+                    className="font-heading font-semibold text-lg text-white/85 hover:text-white block transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </motion.li>
+              ))}
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navLinks.length * 0.07 }}
+              >
+                <a
+                  href="mailto:info@mpstechnologies.eu"
+                  onClick={handleLinkClick}
+                  className="inline-block mt-2 px-6 py-2.5 font-heading font-semibold text-sm text-dark rounded-full"
+                  style={{ backgroundColor: 'var(--color-primary)' }}
+                >
+                  Contacte-nos
+                </a>
+              </motion.li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
 }
