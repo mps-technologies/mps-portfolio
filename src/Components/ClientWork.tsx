@@ -14,7 +14,7 @@ export function ClientWork() {
     >
       {/* Animated gradient blobs */}
       <motion.div
-        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+        className="absolute top-0 right-0 w-150 h-150 rounded-full pointer-events-none"
         style={{
           background:
             'radial-gradient(circle, rgba(34,211,238,0.06) 0%, transparent 70%)',
@@ -24,7 +24,7 @@ export function ClientWork() {
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+        className="absolute bottom-0 left-0 w-125 h-125 rounded-full pointer-events-none"
         style={{
           background:
             'radial-gradient(circle, rgba(21,96,189,0.08) 0%, transparent 70%)',
@@ -39,7 +39,7 @@ export function ClientWork() {
         <AnimatedSection className="text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-4">
             <Users size={16} style={{ color: 'var(--color-primary)' }} />
-            <p className="section-label !mb-0">Colaborações</p>
+            <p className="section-label mb-0!">Colaborações</p>
           </div>
           <h2 className="section-title section-title-light">
             Clientes que Confiaram em Nós
@@ -150,7 +150,7 @@ export function ClientWork() {
               }}
             />
 
-            <p className="section-label !text-white/60 mb-3">Próximo projeto</p>
+            <p className="section-label text-white/60! mb-3">Próximo projeto</p>
             <h3 className="font-heading font-bold text-2xl md:text-3xl text-white mb-3">
               Vamos trabalhar juntos?
             </h3>

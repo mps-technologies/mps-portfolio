@@ -35,7 +35,7 @@ export function Footer() {
 
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <p className="section-label !text-white/50 mb-3">Pronto para começar?</p>
+            <p className="section-label text-white/50! mb-3">Pronto para começar?</p>
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-white uppercase tracking-tight mb-4">
               Vamos transformar a sua ideia em realidade
             </h2>

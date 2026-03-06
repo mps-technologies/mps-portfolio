@@ -143,7 +143,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             style={{ backgroundColor: 'var(--color-primary)', transformOrigin: 'left' }}
           />
-          <p className="section-label !mb-0">MPS Technologies</p>
+          <p className="section-label mb-0!">MPS Technologies</p>
           <motion.span
             className="h-px w-8"
             initial={{ scaleX: 0 }}
