@@ -1,6 +1,6 @@
-import { useRef } from 'react';
 import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { useRef } from 'react';
 import { useCountUp } from '../hooks/useCountUp';
 
 const HERO_BG =
@@ -178,7 +178,7 @@ export function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <motion.a
-            href="mailto:info@mpstechnologies.eu"
+            href="mailto:samuel.santos@mpstechnologies.eu"
             whileHover={{ scale: 1.06, boxShadow: '0 0 40px rgba(34,211,238,0.35)' }}
             whileTap={{ scale: 0.97 }}
             className="px-10 py-3.5 font-heading font-semibold text-sm tracking-widest uppercase border-2 border-white text-white transition-all duration-300 hover:bg-white hover:text-charcoal"

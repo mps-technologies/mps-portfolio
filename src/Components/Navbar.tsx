@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const navLinks = [
   { label: 'Serviços', href: '#services' },
@@ -72,7 +72,7 @@ export function Navbar() {
 
           {/* CTA Desktop */}
           <a
-            href="mailto:info@mpstechnologies.eu"
+            href="mailto:samuel.santos@mpstechnologies.eu"
             className="hidden md:inline-flex items-center gap-2 px-5 py-2 font-heading font-semibold text-sm text-dark rounded-full transition-all duration-300 hover:scale-105"
             style={{ backgroundColor: 'var(--color-primary)' }}
           >
@@ -128,7 +128,7 @@ export function Navbar() {
                 transition={{ delay: navLinks.length * 0.07 }}
               >
                 <a
-                  href="mailto:info@mpstechnologies.eu"
+                  href="mailto:samuel.santos@mpstechnologies.eu"
                   onClick={handleLinkClick}
                   className="inline-block mt-2 px-6 py-2.5 font-heading font-semibold text-sm text-dark rounded-full"
                   style={{ backgroundColor: 'var(--color-primary)' }}

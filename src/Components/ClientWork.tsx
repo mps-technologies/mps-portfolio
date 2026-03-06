@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
+import { Quote, Users } from 'lucide-react';
 import { testimonials } from '../data/mock';
 import { AnimatedSection } from './AnimatedSection';
-import { Users, Quote } from 'lucide-react';
 
 export function ClientWork() {
   const testimonial = testimonials[0];
@@ -158,7 +158,7 @@ export function ClientWork() {
               Conte-nos a sua ideia e encontramos a melhor solução digital para o seu negócio.
             </p>
             <motion.a
-              href="mailto:info@mpstechnologies.eu"
+              href="mailto:samuel.santos@mpstechnologies.eu"
               whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(34,211,238,0.35)' }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-2 px-8 py-3 font-heading font-semibold text-sm text-dark rounded-full transition-all duration-300"

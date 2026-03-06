@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
+import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
-import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 
 const navLinks = [
   { label: 'Serviços', href: '#services' },
@@ -46,7 +46,7 @@ export function Footer() {
               Entre em contacto connosco e dê o primeiro passo para o crescimento digital do seu negócio.
             </p>
             <motion.a
-              href="mailto:info@mpstechnologies.eu"
+              href="mailto:samuel.santos@mpstechnologies.eu"
               whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(34,211,238,0.4)' }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center gap-2 px-10 py-3.5 font-heading font-semibold text-sm text-dark rounded-full transition-all duration-300"
@@ -105,7 +105,7 @@ export function Footer() {
               {[
                 {
                   icon: Mail,
-                  href: 'mailto:info@mpstechnologies.eu',
+                  href: 'mailto:samuel.santos@mpstechnologies.eu',
                   label: 'Email',
                 },
                 {

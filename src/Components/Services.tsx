@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { services } from '../data/mock';
-import { ServiceCard } from './ServiceCard';
 import { AnimatedSection } from './AnimatedSection';
 import { MarqueeTicker } from './MarqueeTicker';
+import { ServiceCard } from './ServiceCard';
 
 const techItems = [
   'React',
@@ -82,7 +82,7 @@ export function Services() {
             Não encontrou o que procura? Fale connosco.
           </p>
           <motion.a
-            href="mailto:info@mpstechnologies.eu"
+            href="mailto:samuel.santos@mpstechnologies.eu"
             whileHover={{ scale: 1.06, boxShadow: '0 0 30px rgba(21,96,189,0.35)' }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center gap-2 px-8 py-3 font-heading font-semibold text-sm text-white rounded-full transition-all duration-300"
