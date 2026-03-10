@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import MPSLogo from '../assets/mps_white.svg';
+// import MPSLogo from '../assets/mps_white.svg';
 
 const navLinks = [
   { label: 'Serviços', href: '#services' },

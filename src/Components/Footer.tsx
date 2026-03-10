@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Github, Mail, MessageCircle } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
-import MPSLogo from '../assets/mps_white.svg';
+// import MPSLogo from '../assets/mps_white.svg';
 
 const navLinks = [
   { label: 'Serviços', href: '#services' },
