@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import MPSLogo from '../assets/mps_white.svg?react';
 
 const navLinks = [
   { label: 'Serviços', href: '#services' },
@@ -37,19 +38,8 @@ export function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-1 group">
-            <span className="font-heading font-bold text-2xl tracking-tight text-white">
-              M
-            </span>
-            <motion.span
-              className="font-heading font-bold text-2xl tracking-tight"
-              style={{ color: 'var(--color-primary)' }}
-            >
-              P
-            </motion.span>
-            <span className="font-heading font-bold text-2xl tracking-tight text-white">
-              S
-            </span>
+          <a href="#hero" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <MPSLogo className="h-7 w-auto" />
           </a>
 
           {/* Desktop Links */}

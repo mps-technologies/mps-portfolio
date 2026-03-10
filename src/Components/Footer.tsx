@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 import { AnimatedSection } from './AnimatedSection';
+import MPSLogo from '../assets/mps_white.svg?react';
 
 const navLinks = [
   { label: 'Serviços', href: '#services' },
@@ -114,15 +115,8 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
             {/* Logo & tagline */}
             <div className="text-center md:text-left">
-              <a href="#hero" className="inline-flex items-center gap-0.5 mb-2">
-                <span className="font-heading font-bold text-2xl text-white">M</span>
-                <span
-                  className="font-heading font-bold text-2xl"
-                  style={{ color: 'var(--color-primary)' }}
-                >
-                  P
-                </span>
-                <span className="font-heading font-bold text-2xl text-white">S</span>
+              <a href="#hero" className="inline-flex items-center gap-2 mb-3 hover:opacity-80 transition-opacity">
+                <MPSLogo className="h-10 w-auto" />
               </a>
               <p
                 className="font-body text-xs max-w-xs leading-relaxed"
