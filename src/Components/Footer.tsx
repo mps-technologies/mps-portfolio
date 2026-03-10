@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowUpRight, Github, Mail, MessageCircle } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
-import MPSLogo from '../assets/mps_white.svg?react';
+import MPSLogo from '../assets/mps_white.svg';
 
 const navLinks = [
   { label: 'Serviços', href: '#services' },
@@ -16,17 +15,6 @@ const whatsappNumber = '932146690';
 const whatsappLink = `https://wa.me/351${whatsappNumber}`;
 
 export function Footer() {
-  const [email, setEmail] = useState('');
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setEmailSubmitted(true);
-      setEmail('');
-      setTimeout(() => setEmailSubmitted(false), 3000);
-    }
-  };
   return (
     <footer className="relative overflow-hidden" style={{ backgroundColor: 'var(--color-dark)' }}>
       {/* CTA Banner */}
@@ -115,8 +103,8 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
             {/* Logo & tagline */}
             <div className="text-center md:text-left">
-              <a href="#hero" className="inline-flex items-center gap-2 mb-3 hover:opacity-80 transition-opacity">
-                <MPSLogo className="h-10 w-auto" />
+              <a href="#hero" className="inline-flex items-center gap-2 mb-3 hover:opacity-80 transition-opacity h-10 w-auto">
+              { /*<MPSLogo/>*/}
               </a>
               <p
                 className="font-body text-xs max-w-xs leading-relaxed"
