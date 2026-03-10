@@ -28,7 +28,7 @@ export function About() {
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Header */}
         <AnimatedSection className="text-center mb-6">
-          <p className="section-label">A nossa equipa</p>
+        {/*<p className="section-label">A nossa equipa</p>*/}
           <h2 className="section-title section-title-dark">Sobre nós</h2>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -53,7 +53,7 @@ export function About() {
         </AnimatedSection>
 
         {/* Team cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {team.map((member, i) => (
             <TeamCard key={member.id} member={member} index={i} />
           ))}

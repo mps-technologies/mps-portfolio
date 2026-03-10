@@ -5,18 +5,9 @@ import { MarqueeTicker } from './MarqueeTicker';
 import { ServiceCard } from './ServiceCard';
 
 const techItems = [
-  'React',
-  'TypeScript',
-  'Next.js',
-  'Node.js',
-  'React Native',
-  'PostgreSQL',
-  'Tailwind CSS',
   'UI / UX Design',
   'API Integration',
-  'Full-Stack Dev',
   'Mobile Apps',
-  'Figma',
 ];
 
 export function Services() {
@@ -45,7 +36,7 @@ export function Services() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <AnimatedSection className="text-center mb-10">
-          <p className="section-label">O que fazemos</p>
+          {/*<p className="section-label">O que fazemos</p>*/}
           <h2 className="section-title section-title-dark">Nossos Serviços</h2>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -59,38 +50,38 @@ export function Services() {
       </div>
 
       {/* Marquee ticker — full width */}
-      <AnimatedSection delay={0.1} className="mb-12">
         <div
-          className="py-4 border-y"
+          className="py-4 m-10 justify-center flex"
           style={{ borderColor: 'rgba(0,0,0,0.08)' }}
         >
           <MarqueeTicker items={techItems} speed={40} />
         </div>
-      </AnimatedSection>
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Cards grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, i) => (
-            <ServiceCard key={service.id} service={service} index={i} />
+            <ServiceCard key={service.title} service={service} index={i} />
           ))}
         </div>
 
         {/* Bottom CTA */}
-        <AnimatedSection delay={0.4} className="text-center mt-14">
-          <p className="font-body text-smoke mb-5">
-            Não encontrou o que procura? Fale connosco.
-          </p>
-          <motion.a
-            href="mailto:samuel.santos@mpstechnologies.eu"
-            whileHover={{ scale: 1.06, boxShadow: '0 0 30px rgba(21,96,189,0.35)' }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-2 px-8 py-3 font-heading font-semibold text-sm text-white rounded-full transition-all duration-300"
-            style={{ backgroundColor: 'var(--color-secondary)' }}
-          >
-            Falar com a equipa
-          </motion.a>
-        </AnimatedSection>
+        {
+        // <AnimatedSection delay={0.4} className="text-center mt-14">
+        //   <p className="font-body text-smoke mb-5">
+        //     Não encontrou o que procura? Fale connosco.
+        //   </p>
+        //   <motion.a
+        //     href="mailto:samuel.santos@mpstechnologies.eu"
+        //     whileHover={{ scale: 1.06, boxShadow: '0 0 30px rgba(21,96,189,0.35)' }}
+        //     whileTap={{ scale: 0.97 }}
+        //     className="inline-flex items-center gap-2 px-8 py-3 font-heading font-semibold text-sm text-white rounded-full transition-all duration-300"
+        //     style={{ backgroundColor: 'var(--color-secondary)' }}
+        //   >
+        //     Falar com a equipa
+        //   </motion.a>
+        // </AnimatedSection>
+        }
       </div>
     </section>
   );

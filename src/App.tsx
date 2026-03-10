@@ -1,11 +1,11 @@
-import { About } from './components/About';
-import { ClientWork } from './components/ClientWork';
-import { Footer } from './components/Footer';
-import { Hero } from './components/Hero';
-import { Navbar } from './components/Navbar';
-import { Projects } from './components/Projects';
-import { ScrollProgress } from './components/ScrollProgress';
-import { Services } from './components/Services';
+import { About } from './Components/About';
+import { ClientWork } from './Components/ClientWork';
+import { Footer } from './Components/Footer';
+import { Hero } from './Components/Hero';
+import { Navbar } from './Components/Navbar';
+import { Projects } from './Components/Projects';
+import { ScrollProgress } from './Components/ScrollProgress';
+import { Services } from './Components/Services';
 
 function App() {
   return (

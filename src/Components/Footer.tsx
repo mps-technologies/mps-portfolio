@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
+import { useState } from 'react';
 import { AnimatedSection } from './AnimatedSection';
 
 const navLinks = [
@@ -10,8 +11,21 @@ const navLinks = [
 ];
 
 const year = new Date().getFullYear();
+const whatsappNumber = '932146690';
+const whatsappLink = `https://wa.me/351${whatsappNumber}`;
 
 export function Footer() {
+  const [email, setEmail] = useState('');
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) {
+      setEmailSubmitted(true);
+      setEmail('');
+      setTimeout(() => setEmailSubmitted(false), 3000);
+    }
+  };
   return (
     <footer className="relative overflow-hidden" style={{ backgroundColor: 'var(--color-dark)' }}>
       {/* CTA Banner */}
@@ -45,6 +59,38 @@ export function Footer() {
             >
               Entre em contacto connosco e dê o primeiro passo para o crescimento digital do seu negócio.
             </p>
+
+            {/* Email subscription form */}
+            {
+            // <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto mb-6">
+            //   <input
+            //     type="email"
+            //     value={email}
+            //     onChange={(e) => setEmail(e.target.value)}
+            //     placeholder="O seu email..."
+            //     className="flex-1 px-6 py-3 rounded-full font-body text-sm text-dark outline-none transition-all duration-200"
+            //     style={{
+            //       backgroundColor: 'rgba(255,255,255,0.95)',
+            //       color: 'var(--color-charcoal)',
+            //     }}
+            //     required
+            //   />
+            //   <motion.button
+            //     type="submit"
+            //     whileHover={{ scale: 1.05 }}
+            //     whileTap={{ scale: 0.97 }}
+            //     className="px-8 py-3 font-heading font-semibold text-sm rounded-full transition-all duration-300 whitespace-nowrap"
+            //     style={{
+            //       backgroundColor: 'var(--color-primary)',
+            //       color: 'var(--color-dark)',
+            //     }}
+            //   >
+            //     {emailSubmitted ? 'Enviado!' : 'Subscrever'}
+            //   </motion.button>
+            // </form>
+            }
+
+            {/* Direct contact button */}
             <motion.a
               href="mailto:samuel.santos@mpstechnologies.eu"
               whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(34,211,238,0.4)' }}
@@ -109,15 +155,20 @@ export function Footer() {
                   label: 'Email',
                 },
                 {
+                  icon: MessageCircle,
+                  href: whatsappLink,
+                  label: 'WhatsApp',
+                },
+                {
                   icon: Github,
                   href: 'https://github.com',
                   label: 'GitHub',
                 },
-                {
-                  icon: Linkedin,
-                  href: 'https://linkedin.com',
-                  label: 'LinkedIn',
-                },
+                // {
+                //   icon: Linkedin,
+                //   href: 'https://linkedin.com',
+                //   label: 'LinkedIn',
+                // },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}

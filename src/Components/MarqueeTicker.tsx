@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 interface MarqueeTickerProps {
   items: string[];
@@ -9,23 +9,19 @@ interface MarqueeTickerProps {
 
 export function MarqueeTicker({
   items,
-  speed = 35,
-  direction = 'left',
+  // speed = 1000,
+  // direction = 'left',
   className = '',
 }: MarqueeTickerProps) {
-  const doubled = [...items, ...items];
+  // const doubled = [...items, ...items];
 
   return (
     <div className={`overflow-hidden ${className}`}>
-      <motion.div
-        className="flex gap-10 whitespace-nowrap will-change-transform"
-        animate={{ x: direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%'] }}
-        transition={{ duration: speed, ease: 'linear', repeat: Infinity }}
-      >
-        {doubled.map((item, i) => (
+      <div className="gap-10 will-change-transform">
+        {items.map((item, i) => (
           <span
             key={i}
-            className="inline-flex items-center gap-3 font-heading font-semibold text-xs uppercase tracking-[0.2em]"
+            className="inline-flex items-center gap-3 font-heading font-semibold text-xs uppercase tracking-[0.2em] pl-8"
             style={{ color: 'var(--color-smoke)' }}
           >
             <span
@@ -35,7 +31,7 @@ export function MarqueeTicker({
             {item}
           </span>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }
