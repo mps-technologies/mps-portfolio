@@ -3,7 +3,6 @@ import { ClientWork } from './Components/ClientWork';
 import { Footer } from './Components/Footer';
 import { Hero } from './Components/Hero';
 import { Navbar } from './Components/Navbar';
-import { Projects } from './Components/Projects';
 import { ScrollProgress } from './Components/ScrollProgress';
 import { Services } from './Components/Services';
 
@@ -15,7 +14,6 @@ function App() {
       <main>
         <Hero />
         <Services />
-        <Projects />
         <ClientWork />
         <About />
       </main>
